@@ -125,9 +125,11 @@ resetRestaurants = (restaurants) => {
  * Create all restaurants HTML and add them to the webpage.
  */
 fillRestaurantsHTML = (restaurants = self.restaurants) => {
+  let tabIndex = 3;
   const ul = document.getElementById('restaurants-list');
   restaurants.forEach(restaurant => {
-    ul.append(createRestaurantHTML(restaurant));
+    ul.append(createRestaurantHTML(restaurant, tabIndex));
+    tabIndex++;
   });
   addMarkersToMap();
 }
@@ -135,12 +137,26 @@ fillRestaurantsHTML = (restaurants = self.restaurants) => {
 /**
  * Create restaurant HTML.
  */
-createRestaurantHTML = (restaurant) => {
+createRestaurantHTML = (restaurant,tabIndex) => {
   const li = document.createElement('li');
+
+  // To do : responsive images?
+  // let source = DBHelper.imageUrlForRestaurant(restaurant);
+  // let fileName = DBHelper.fileNameForRestaurant(restaurant);
+  // const picture = document.createElement('picture');
+  // picture.className = 'restaurant-img';
+  // picture.innerHTML = '<source media="(min-width: 750px)" srcset="/img/large'+fileName +' 2x, /img/'+fileName +'" />' +
+  //  '<source media="(min-width: 500px)" srcset="'+fileName +'" />' + 
+  //  '<img src="'+source+'" alt="Main image of ' + restaurant.name + ' restaurant">';
+  // li.append(picture);
+  // const name = document.createElement('figcaption');
+  // name.innerHTML = restaurant.name;
+  // li.append(name);
 
   const image = document.createElement('img');
   image.className = 'restaurant-img';
   image.src = DBHelper.imageUrlForRestaurant(restaurant);
+  image.alt = restaurant.name + ' Main Image';
   li.append(image);
 
   const name = document.createElement('h1');
@@ -157,6 +173,8 @@ createRestaurantHTML = (restaurant) => {
 
   const more = document.createElement('a');
   more.innerHTML = 'View Details';
+  more.setAttribute('tabindex',tabIndex.toString());
+  more.setAttribute('aria-label','More details about '+restaurant.name);
   more.href = DBHelper.urlForRestaurant(restaurant);
   li.append(more)
 
