@@ -2,8 +2,8 @@ var staticCacheName = 'restaurant-cache-v1';
 var filesToCache = [
     '/',
     '../index.html',
-    '../restaurant.html',
-    '../css/styles.css',
+    '../restaurant.min.html',
+    '../css/styles.min.css',
     './dbhelper.js',
     './main.js',
     './restaurant_info.js',
