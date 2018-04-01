@@ -147,14 +147,6 @@ nav h1 a {
     text-decoration: underline;
 }
 
-/* ====================== Map ====================== */
-
-#map {
-    height: 400px;
-    width: 100%;
-    background-color: #ccc;
-}
-
 /* ====================== Restaurant Filtering ====================== */
 
 .filter-options {
@@ -255,6 +247,7 @@ nav h1 a {
 
 #map {
     height: 350px;
+    width: 100%;
 }
 
 
@@ -352,11 +345,11 @@ nav h1 a {
 }
 
 
-/* @media (min-width: 1281px) {
+@media (min-width: 1281px) {
   body {
       width: 90vw;
   }
-} */
+} 
 
 @media (min-width: 671px) {
     .filter-options {
