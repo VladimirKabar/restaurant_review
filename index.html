@@ -13,22 +13,22 @@
   <header>
     <nav>
       <h1>
-        <a href="/">Restaurant Reviews</a>
+        <a tabindex="1" aria-label="Link to Restaurant Reviews, visited link" href="/">Restaurant Reviews</a>
       </h1>
     </nav>
   </header>
   <main id="maincontent">
     <section id="map-container">
-      <div id="map"></div>
+      <div tabindex="2" role="presentation" aria-hidden="true" id="map"></div>
     </section>
     <section>
       <div class="filter-options">
         <h2>Filter Results</h2>
-        <select tabindex="1" id="neighborhoods-select" name="neighborhoods" aria-label="Select Neigborhood" onchange="updateRestaurants()">
-          <option value="all">All Neighborhoods</option>
+        <select tabindex="3"id="neighborhoods-select" name="neighborhoods" aria-label="Select Neigborhood" onchange="updateRestaurants()">
+          <option  value="all">All Neighborhoods</option>
         </select>
-        <select tabindex="2" id="cuisines-select" name="cuisines" aria-label="Select Cuisine" onchange="updateRestaurants()">
-          <option value="all">All Cuisines</option>
+        <select  tabindex="4"id="cuisines-select" name="cuisines" aria-label="Select Cuisine" onchange="updateRestaurants()">
+          <option  value="all">All Cuisines</option>
         </select>
       </div>
       <ul id="restaurants-list"></ul>
@@ -37,7 +37,7 @@
   <script>
     if ('serviceWorker' in navigator) {
       window.addEventListener('load', function () {
-        navigator.serviceWorker.register('js/sw.min.js').then(function (reg) {
+        navigator.serviceWorker.register('sw.min.js').then(function (reg) {
           console.log('Serviceworker registration success!, scope : ', reg.scope);
         }, function (err) {
           console.log('Serviceworker registration fail!, error : ', err);
@@ -45,12 +45,12 @@
       });
     }
   </script>
-  <script type="application/javascript" charset="utf-8" src="js/dbhelper.js"></script>
-  <script type="application/javascript" charset="utf-8" src="js/main.js"></script>
+  <script type="application/javascript" charset="utf-8" src="js/dbhelper.min.js"></script>
+  <script type="application/javascript" charset="utf-8" src="js/main.min.js"></script>
   <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDTX5InPSSfK2wJeLoRNrJR3ve13R6kcCs&libraries=places&callback=initMap"></script>
   <footer id="footer">
     Copyright (c) 2018
-    <a href="/">
+    <a tabindex="5 " aria-label="Link to Restaurant Reviews, visited link" href="/">
       <strong>Restaurant Reviews</strong>
     </a> 
     All Rights Reserved or no?.
