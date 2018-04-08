@@ -148,18 +148,18 @@ createRestaurantHTML = (restaurant, tabIndex) => {
   picture.className = 'restaurant-img';
   picture.innerHTML = '<source media="(min-width: 750px)" srcset="/img/large/' + fileName+'">' +
     '<source media="(min-width: 500px)" srcset="/img/medium/' + fileName + '">' +
-    '<img src="' + source + '" alt="Main image of ' + restaurant.name + ' restaurant">';
+    '<img src="/img/small/' + fileName + '" alt="Main image of ' + restaurant.name + ' restaurant">';
     
   li.append(picture);
   // const name = document.createElement('figcaption');
   // name.innerHTML = restaurant.name;
   // li.append(name) ;
 
-  const image = document.createElement('img');
-  image.className = 'restaurant-img';
-  image.src = DBHelper.imageUrlForRestaurant(restaurant);
-  image.alt = restaurant.name + ' Main Image';
-  li.append(image);
+  // const image = document.createElement('img');
+  // image.className = 'restaurant-img';
+  // image.src = DBHelper.imageUrlForRestaurant(restaurant);
+  // image.alt = restaurant.name + ' Main Image';
+  // li.append(image);
 
   const name = document.createElement('h2');
   name.innerHTML = restaurant.name;
