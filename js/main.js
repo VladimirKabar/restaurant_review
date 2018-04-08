@@ -137,21 +137,23 @@ fillRestaurantsHTML = (restaurants = self.restaurants) => {
 /**
  * Create restaurant HTML.
  */
-createRestaurantHTML = (restaurant,tabIndex) => {
+createRestaurantHTML = (restaurant, tabIndex) => {
   const li = document.createElement('li');
 
   // To do : responsive images?
-  // let source = DBHelper.imageUrlForRestaurant(restaurant);
-  // let fileName = DBHelper.fileNameForRestaurant(restaurant);
-  // const picture = document.createElement('picture');
-  // picture.className = 'restaurant-img';
-  // picture.innerHTML = '<source media="(min-width: 750px)" srcset="/img/large'+fileName +' 2x, /img/'+fileName +'" />' +
-  //  '<source media="(min-width: 500px)" srcset="'+fileName +'" />' + 
-  //  '<img src="'+source+'" alt="Main image of ' + restaurant.name + ' restaurant">';
-  // li.append(picture);
+  let source = DBHelper.imageUrlForRestaurant(restaurant);
+  var fileName = DBHelper.fileNameForRestaurant(restaurant);
+  var picture = document.createElement('picture');
+  var slash = '/';
+  picture.className = 'restaurant-img';
+  picture.innerHTML = '<source media="(min-width: 750px)" srcset="/img/large/' + fileName+'">' +
+    '<source media="(min-width: 500px)" srcset="/img/medium/' + fileName + '">' +
+    '<img src="' + source + '" alt="Main image of ' + restaurant.name + ' restaurant">';
+    
+  li.append(picture);
   // const name = document.createElement('figcaption');
   // name.innerHTML = restaurant.name;
-  // li.append(name);
+  // li.append(name) ;
 
   const image = document.createElement('img');
   image.className = 'restaurant-img';
@@ -173,8 +175,8 @@ createRestaurantHTML = (restaurant,tabIndex) => {
 
   const more = document.createElement('a');
   more.innerHTML = 'View Details';
-  more.setAttribute('tabindex',tabIndex.toString());
-  more.setAttribute('aria-label','More details about '+restaurant.name);
+  more.setAttribute('tabindex', tabIndex.toString());
+  more.setAttribute('aria-label', 'More details about ' + restaurant.name);
   more.href = DBHelper.urlForRestaurant(restaurant);
   li.append(more)
 
